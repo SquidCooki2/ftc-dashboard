@@ -15,6 +15,7 @@ function inflate(v: ConfigVar): ConfigVarState {
       return {
         __type: 'custom',
         __value: null,
+        __hasChanged: false
       };
     } else {
       return {
@@ -26,6 +27,7 @@ function inflate(v: ConfigVar): ConfigVarState {
           }),
           {},
         ),
+        __hasChanged: v.__hasChanged
       };
     }
   } else {
@@ -49,6 +51,7 @@ function mergeModified(
       return {
         __type: 'custom',
         __value: null,
+        __hasChanged: false
       };
     } else {
       return {
@@ -66,6 +69,7 @@ function mergeModified(
                 },
           {},
         ),
+        __hasChanged: latest.__hasChanged
       };
     }
   } else if (
@@ -102,6 +106,7 @@ function revertModified(state: ConfigVarState): ConfigVarState {
       return {
         __type: 'custom',
         __value: null,
+        __hasChanged: false
       };
     } else {
       return {
@@ -113,6 +118,7 @@ function revertModified(state: ConfigVarState): ConfigVarState {
           }),
           {},
         ),
+        __hasChanged: false
       };
     }
   } else {
@@ -127,6 +133,7 @@ const initialState: ConfigState = {
   configRoot: {
     __type: 'custom',
     __value: {},
+    __hasChanged: false
   },
 };
 

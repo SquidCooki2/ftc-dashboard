@@ -45,6 +45,7 @@ function validAndModified(state: ConfigVarState): ConfigVar | null {
       return {
         __type: 'custom',
         __value: filteredValue,
+        __hasChanged: state.__hasChanged
       };
     }
   } else {
@@ -147,6 +148,7 @@ const ConfigView = ({
                         }),
                         {},
                       ),
+                      __hasChanged: newState.__hasChanged
                     },
                   })
                 }
@@ -158,6 +160,7 @@ const ConfigView = ({
                       __value: {
                         [key]: variable,
                       },
+                      __hasChanged: variable.__hasChanged
                     },
                   })
                 }

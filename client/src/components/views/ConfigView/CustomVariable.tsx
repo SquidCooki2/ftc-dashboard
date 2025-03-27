@@ -55,6 +55,7 @@ class CustomVariable extends Component<Props, State> {
                 'dark:border-slate-500/80 dark:bg-slate-700 dark:text-slate-200',
                 !this.state.expanded && '-rotate-90',
               )}
+              style = {this.props.state.__hasChanged ? {border: '2px solid yellow'} : {}}
             >
               <ExpandedMoreIcon className="h-6 w-6" />
             </div>
@@ -99,6 +100,7 @@ class CustomVariable extends Component<Props, State> {
             }),
             {},
           ),
+          __hasChanged: state.__hasChanged
         });
       };
 
@@ -108,6 +110,7 @@ class CustomVariable extends Component<Props, State> {
           __value: {
             [key]: variable,
           },
+          __hasChanged: state.__hasChanged
         });
       };
 

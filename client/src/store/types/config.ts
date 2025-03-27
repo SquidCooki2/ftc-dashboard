@@ -4,17 +4,19 @@ export type ConfigVarState = CustomVarState | BasicVarState;
 export type CustomVar = {
   __type: 'custom';
   __value: Record<string, ConfigVar> | null;
+  __hasChanged: boolean
 };
 
 export type CustomVarState = {
   __type: 'custom';
   __value: Record<string, ConfigVarState> | null;
+  __hasChanged: boolean
 };
 
 export type BasicVar = (
   | {
       __type: 'enum';
-      // only string is actualy present, but this helps treat vars uniformly
+      // only string is actually present, but this helps treat vars uniformly
       __value: boolean | number | string | null;
       __enumClass: string;
       __enumValues: string[];
