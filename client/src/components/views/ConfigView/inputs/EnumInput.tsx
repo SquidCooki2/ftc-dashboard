@@ -4,6 +4,7 @@ interface Props {
   id: string;
   value: string;
   enumValues: string[];
+  hasChanged: boolean
   onChange: (arg: { value: string; valid: boolean }) => void;
   onSave: () => void;
 }
@@ -12,6 +13,7 @@ const EnumInput: React.FC<Props> = ({
   id,
   value,
   enumValues,
+  hasChanged,
   onChange,
   onSave,
 }) => (
@@ -31,6 +33,7 @@ const EnumInput: React.FC<Props> = ({
           valid: true,
         })
       }
+      style={hasChanged ? {border: '2px solid yellow'} : {}}
     >
       {enumValues.map((enumValue) => (
         <option key={enumValue} value={enumValue}>

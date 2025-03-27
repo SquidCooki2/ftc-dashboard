@@ -33,6 +33,7 @@ function inflate(v: ConfigVar): ConfigVarState {
       ...v,
       __newValue: v.__value,
       __valid: true,
+      __hasChanged: v.__hasChanged
     };
   }
 }
@@ -76,6 +77,7 @@ function mergeModified(
     return {
       ...base,
       __value: latest.__value,
+      __hasChanged: latest.__hasChanged
     };
   } else if (
     base.__type === latest.__type &&
@@ -86,6 +88,7 @@ function mergeModified(
     return {
       ...base,
       __value: latest.__value,
+      __hasChanged: latest.__hasChanged
     };
   } else {
     return inflate(latest);

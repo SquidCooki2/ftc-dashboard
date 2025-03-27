@@ -64,4 +64,14 @@ public class CustomVariable extends ConfigVariable<Object> {
             throw new RuntimeException();
         }
     }
+
+    @Override
+    public boolean hasChanged() {
+        if (variables != null) {
+            for (ConfigVariable value : variables.values()) {
+                if (value.hasChanged()) return true;
+            }
+        }
+        return false;
+    }
 }

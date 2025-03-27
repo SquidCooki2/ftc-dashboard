@@ -44,11 +44,13 @@ class BasicVariable extends React.Component<Props> {
             __value: state.__newValue,
             __enumClass: state.__enumClass,
             __enumValues: state.__enumValues,
+            __hasChanged: state.__hasChanged
           });
         } else {
           this.props.onSave({
             __type: state.__type,
             __value: state.__newValue,
+            __hasChanged : state.__hasChanged
           });
         }
       }
@@ -67,6 +69,7 @@ class BasicVariable extends React.Component<Props> {
               id={path}
               value={state.__newValue as number | string}
               valid={state.__valid}
+              hasChanged={state.__hasChanged}
               validate={validateInt}
               onChange={onChange}
               onSave={onSave}
@@ -89,6 +92,7 @@ class BasicVariable extends React.Component<Props> {
                   id={path}
                   value={state.__newValue as number | string}
                   valid={state.__valid}
+                  hasChanged={state.__hasChanged}
                   validate={validateDouble}
                   onChange={onChange}
                   onSave={onSave}
@@ -113,6 +117,7 @@ class BasicVariable extends React.Component<Props> {
               id={path}
               value={state.__newValue as number | string}
               valid={state.__valid}
+              hasChanged={state.__hasChanged}
               validate={validateString}
               onChange={onChange}
               onSave={onSave}
@@ -124,6 +129,7 @@ class BasicVariable extends React.Component<Props> {
             <BooleanInput
               id={path}
               value={state.__newValue as boolean}
+              hasChanged={state.__hasChanged}
               onChange={onChange}
               onSave={onSave}
             />
@@ -135,6 +141,7 @@ class BasicVariable extends React.Component<Props> {
               id={path}
               value={state.__newValue as string}
               enumValues={state.__enumValues}
+              hasChanged={state.__hasChanged}
               onChange={onChange}
               onSave={onSave}
             />

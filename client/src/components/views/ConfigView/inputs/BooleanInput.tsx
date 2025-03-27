@@ -3,11 +3,12 @@ import React from 'react';
 interface Props {
   id: string;
   value: boolean;
+  hasChanged: boolean
   onChange: (arg: { value: boolean; valid: boolean }) => void;
   onSave: () => void;
 }
 
-const BooleanInput: React.FC<Props> = ({ id, value, onChange, onSave }) => (
+const BooleanInput: React.FC<Props> = ({ id, value, hasChanged, onChange, onSave }) => (
   <span className="flex items-center">
     <input
       id={id}
@@ -20,6 +21,7 @@ const BooleanInput: React.FC<Props> = ({ id, value, onChange, onSave }) => (
           valid: true,
         })
       }
+      style={hasChanged ? {border: '2px solid yellow'} : {}}
     />
     <button
       className={`

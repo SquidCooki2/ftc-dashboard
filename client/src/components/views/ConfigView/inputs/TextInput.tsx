@@ -6,6 +6,7 @@ interface Props<T> {
   id?: string;
   value: string | number;
   valid: boolean;
+  hasChanged: boolean
   validate: (rawValue: string) => ValResult<T>;
   onChange: (arg: ValResult<T>) => void;
   onSave?: () => void;
@@ -15,6 +16,7 @@ const TextInput = <T,>({
   id,
   value,
   valid,
+  hasChanged,
   validate,
   onChange,
   onSave,
@@ -59,6 +61,7 @@ const TextInput = <T,>({
       value={inputValue}
       onChange={handleChange}
       onKeyDown={handleKeyDown}
+      style = {hasChanged ? {border: '2px solid yellow'} : {}}
     />
   );
 };

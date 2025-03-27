@@ -59,11 +59,13 @@ function validAndModified(state: ConfigVarState): ConfigVar | null {
         __value: state.__newValue,
         __enumClass: state.__enumClass,
         __enumValues: state.__enumValues,
+        __hasChanged: state.__hasChanged
       };
     } else {
       return {
         __type: state.__type,
         __value: state.__newValue,
+        __hasChanged: state.__hasChanged
       };
     }
   }

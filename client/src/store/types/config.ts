@@ -11,7 +11,7 @@ export type CustomVarState = {
   __value: Record<string, ConfigVarState> | null;
 };
 
-export type BasicVar =
+export type BasicVar = (
   | {
       __type: 'enum';
       // only string is actualy present, but this helps treat vars uniformly
@@ -22,7 +22,10 @@ export type BasicVar =
   | {
       __type: 'boolean' | 'int' | 'long' | 'float' | 'double' | 'string';
       __value: boolean | number | string | null;
-    };
+    }
+  ) & {
+    __hasChanged: boolean
+  }
 
 export type BasicVarState = (
   | {
@@ -39,6 +42,7 @@ export type BasicVarState = (
     }
 ) & {
   __valid: boolean;
+  __hasChanged: boolean
 };
 
 export type ConfigState = {

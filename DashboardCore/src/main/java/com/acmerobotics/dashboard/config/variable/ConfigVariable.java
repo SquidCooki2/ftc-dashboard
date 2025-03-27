@@ -9,6 +9,7 @@ import java.util.Set;
 public abstract class ConfigVariable<T> {
     public static final String TYPE_KEY = "__type";
     public static final String VALUE_KEY = "__value";
+    public static final String HAS_CHANGED_KEY = "__hasChanged";
     public static final String ENUM_CLASS_KEY = "__enumClass";
     public static final String ENUM_VALUES_KEY = "__enumValues";
 
@@ -31,4 +32,6 @@ public abstract class ConfigVariable<T> {
     public abstract T getValue();
 
     public abstract void update(ConfigVariable<T> newVariable);
+
+    public abstract boolean hasChanged();
 }
